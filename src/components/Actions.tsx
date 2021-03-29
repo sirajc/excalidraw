@@ -209,7 +209,7 @@ export const ShapesSwitcher = ({
   </>
 );
 
-export const ZoomActions = ({
+export const CanvasActions = ({
   renderAction,
   zoom,
 }: {
@@ -218,6 +218,8 @@ export const ZoomActions = ({
 }) => (
   <Stack.Col gap={1}>
     <Stack.Row gap={1} align="center">
+      {renderAction("undo")}
+      {renderAction("redo")}
       {renderAction("zoomIn")}
       {renderAction("zoomOut")}
       {renderAction("resetZoom")}

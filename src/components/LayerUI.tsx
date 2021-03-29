@@ -19,7 +19,7 @@ import { calculateScrollCenter, getSelectedElements } from "../scene";
 import { ExportType } from "../scene/types";
 import { AppState, ExcalidrawProps, LibraryItem, LibraryItems } from "../types";
 import { muteFSAbortError } from "../utils";
-import { SelectedShapeActions, ShapesSwitcher, ZoomActions } from "./Actions";
+import { CanvasActions, SelectedShapeActions, ShapesSwitcher } from "./Actions";
 import { BackgroundPickerAndDarkModeToggle } from "./BackgroundPickerAndDarkModeToggle";
 import CollabButton from "./CollabButton";
 import { ErrorDialog } from "./ErrorDialog";
@@ -587,14 +587,16 @@ const LayerUI = ({
           "App-menu_bottom--transition-left": zenModeEnabled,
         })}
       >
-        <Stack.Col gap={2}>
+        <Stack.Col gap={1}>
           <Section heading="canvasActions">
-            <Island padding={1}>
-              <ZoomActions
-                renderAction={actionManager.renderAction}
-                zoom={appState.zoom}
-              />
-            </Island>
+            <Stack.Row gap={2}>
+              <Island padding={1}>
+                <CanvasActions
+                  renderAction={actionManager.renderAction}
+                  zoom={appState.zoom}
+                />
+              </Island>
+            </Stack.Row>
             {renderEncryptedIcon()}
           </Section>
         </Stack.Col>
